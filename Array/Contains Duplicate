@@ -1,0 +1,23 @@
+import java.util.*; 
+
+class Solution {
+    public boolean containsDuplicate(int[] nums) {
+        Map<Integer, Integer> frequencyMap = new HashMap<>();
+        
+        for(Integer n: nums){
+            Integer count = frequencyMap.get(n);
+            if(count == null){
+                count = 0;
+            }
+            frequencyMap.put(n, count+1);
+        }
+        
+        for(int i: frequencyMap.values()){
+            if(i>1){
+                return true;
+            }   
+        }
+        
+        return false;
+    }
+}
